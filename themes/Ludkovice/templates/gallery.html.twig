@@ -1,0 +1,24 @@
+{% extends 'partials/base.html.twig' %}
+{% block content %}
+    <section id="styles">
+        <div class="row">
+            <div class="large-12 columns">
+              {{ page.content }}
+            </div>
+        </div>
+    </section>
+    <section id="screenshots">
+        <div class="row">
+            <ul class="clearing-thumbs small-block-grid-4" data-clearing>
+                {% for item in page.media.images %}
+                    <li>
+                        <a href="{{ item.quality(80).url() }}">
+                            {{ item.cropZoom(400, 400).quality(60).html(itemTitle,itemTitle) }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+
+{% endblock %}

@@ -1,0 +1,11 @@
+email: viktoriejan@gmail.cz
+access:
+  admin:
+    login: true
+    super: true
+  site:
+    login: true
+fullname: 'ZS a MS'
+title: 'ZS a MS'
+state: enabled
+hashed_password: $2y$10$pZlht1yeOND4z/ehWhHg5.JzrFZYUb99tP6uE0nyRA8/kkqAA5qdG

@@ -1,0 +1,35 @@
+{% extends 'partials/base.html.twig' %}
+{% block content %}
+    <section id="styles" class="row">
+        <div class="large-12 columns">
+            {{ page.content }}
+        </div>
+    </section>
+    <section id="articles" class="row">
+      <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
+        {% for p in page.children.order('date', 'desc') %}
+            <li>
+                <div class="item-wrap">
+                    {% set bannerimage = p.media.images|first %}
+                    <div class="recent-post">
+                        {% if bannerimage %}
+                            <div class="recent-post-image"><a
+                                        href="{{ p.url }}">{{ bannerimage.cropZoom(200,200).quality(60) }}</a>
+                            </div>
+                        {% else %}
+                            <div class="recent-post-image"><a href="{{ p.url }}"><img
+                                            src="{{ url('theme://images/logo_ludkovice.svg') }}" width="200"
+                                            height="200" /></a></div>
+                        {% endif %}
+                        <div class="recent-post-text">
+                            <h4><a href="{{ p.url }}">{{ p.title }}</a></h4>
+
+                            <p>{{ p.date|localizeddate('full', 'none', 'cs-CZ') }}</p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        {% endfor %}
+      </ul>
+    </section>
+{% endblock %}

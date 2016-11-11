@@ -1,0 +1,25 @@
+{
+    "name": "zajca/grav-theme-ludkovice",
+    "type": "grav-theme",
+    "description": "Ludkovice theme for Ludkovice ZS MS",
+    "keywords": ["theme","grav", "ludkovice"],
+    "homepage": "http://zsmsludkovice.cz",
+    "license": "CC BY 3.0",
+    "authors": [
+        {
+            "name": "Martin Zajic",
+            "email": "zajca@zajca.cz",
+            "homepage": "http://zajca.cz"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "composer/installers": "~1.0"
+    },
+    "extra": {
+        "installer-name": "Ludkovice",
+        "installer-paths": {
+            "user/themes/{$name}/": ["zajca/grav-theme-ludkovice"]
+        }
+    }
+}

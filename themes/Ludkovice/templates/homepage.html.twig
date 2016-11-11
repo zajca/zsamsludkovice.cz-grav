@@ -1,0 +1,115 @@
+{% extends 'partials/base.html.twig' %} {% block content %}
+  <div class="row">
+      <div class="large-12 columns">
+        {{page.content}}
+      </div>
+    </div>
+    <div class="row">
+        <div class="large-12 columns">
+            <div class="row">
+                <div class="large-12 columns">
+                    <div class="row">
+
+                        <div class="large-6 medium-6 small-12 columns">
+                          <div class="row">
+                              <div class="small-12 columns">
+                                <h4>Poslední fotogalerie</h4>
+                                <hr>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="small-12 columns">
+                                {% set lastFotoZs = page.find('/zs/fotogalerie').children.order('date', 'desc')|first %}
+                                <div class="panel">
+                                  {% include "./partials/_photo.html.twig" with {p:lastFotoZs} %}
+                                </div>
+                              </div>
+                          </div>
+                          {#
+                          <div class="row">
+                              <div class="small-12 columns">
+                                <a href="{{ page.find('zs/fotogalerie').url }}" class="right">Více galerií z ZŠ»</a>
+                              </div>
+                          </div>
+                          #}
+                          <div class="row">
+                              <div class="small-12 columns">
+                                {% set lastFotoMs = page.find('/ms/fotogalerie').children.order('date', 'desc')|first %}
+                                <div class="panel">
+                                  {% include "./partials/_photo.html.twig" with {p:lastFotoMs} %}
+                                </div>
+                              </div>
+                          </div>
+                          {#
+                          <div class="row">
+                              <div class="small-12 columns">
+                                <a href="{{ page.find('/ms/fotogalerie').url }}" class="right">Více galerií z MŠ»</a>
+                              </div>
+                          </div>
+                          #}
+                        </div>
+
+                        <div class="large-6 medium-6 small-12 columns">
+                          <div class="row">
+                              <div class="small-12 columns">
+                                <h4>Poslední aktuality</h4>
+                                <hr>
+                              </div>
+                          </div>
+                          {% for p in page.find('/zs/aktuality').children.order('date', 'desc')|slice(0, 1) %}
+                            <div class="row">
+                              <div class="small-12 columns">
+                                <div class="panel">
+                                    {% include "./partials/_photo.html.twig" with {p:p,showDate:true} %}
+                                </div>
+                              </div>
+                            </div>
+                          {% endfor %}
+                          {% for p in page.find('/ms/aktuality').children.order('date', 'desc')|slice(0, 1) %}
+                            <div class="row">
+                              <div class="small-12 columns">
+                                <div class="panel">
+                                    {% include "./partials/_photo.html.twig" with {p:p,showDate:true} %}
+                                </div>
+                              </div>
+                            </div>
+                          {% endfor %}
+                          {#
+                          <div class="row">
+                              <div class="small-12 columns">
+                                <a href="{{ page.find('/aktuality').url }}" class="right">Více aktualit »</a>
+                              </div>
+                          </div>
+                          #}
+                        </div>
+
+                    </div>
+                    <div class="row">
+                      <div class="small-12 columns">
+                        <div class="row">
+                            <div class="small-12 columns">
+                              <h4>Školní jídelna</h4>
+                              <hr>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                      <div class="medium-6 small-12 columns">
+                        {% set jidelniListek = page.find('/skolni-jidelna/jidelni-listek') %}
+                        <div class="panel">
+                          {% include "./partials/_photo.html.twig" with {p:jidelniListek} %}
+                        </div>
+                      </div>
+                      <div class="medium-6 small-12 columns">
+                        {% set jidelniListek = page.find('/skolni-jidelna/prodej-stravenek') %}
+                        <div class="panel">
+                          {% include "./partials/_photo.html.twig" with {p:jidelniListek} %}
+                        </div>
+                      </div>
+                  </div>
+                </div>
+            </div>
+
+        </div>
+    </div> {% endblock %}

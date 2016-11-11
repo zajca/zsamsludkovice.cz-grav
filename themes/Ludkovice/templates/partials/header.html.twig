@@ -1,0 +1,72 @@
+{% set zsgalleries = page.find('/zs/fotogalerie').children.order('date', 'desc') %}
+{% if zsgalleries|length > 0 %}
+  {% set zsgallery = random(zsgalleries) %}
+{% endif %}
+
+{% set msgalleries = page.find('/ms/fotogalerie').children.order('date', 'desc') %}
+{% if msgalleries|length > 0 %}
+  {% set msgallery = random(msgalleries) %}
+{% endif %}
+
+<header id="header">
+    <div class="header-slider">
+        <img src="{{ url('theme://images/skola/P1020829.JPG') }}" />
+        {% if zsgallery is defined and zsgallery.media.images is not empty %}
+          {% set bannerimage = random(zsgallery.media.images) %}
+          {% if bannerimage %}
+            <a href="{{ zsgallery.url }}">
+              {{ bannerimage.cropZoom(480,360).quality(70) }}
+            </a>
+          {% endif %}
+        {% endif %}
+        <img src="{{ url('theme://images/skola/P1020828.JPG') }}" />
+        {% if msgallery is defined and msgallery.media.images is not empty %}
+          {% set bannerimage = random(msgallery.media.images) %}
+          {% if bannerimage %}
+            <a href="{{ msgallery.url }}">
+              {{ bannerimage.cropZoom(480,360).quality(70) }}
+            </a>
+          {% endif %}
+        {% endif %}
+        <img src="{{ url('theme://images/skola/P1020827.JPG') }}" />
+        {% if zsgallery is defined and zsgallery.media.images is not empty %}
+          {% set bannerimage = random(zsgallery.media.images) %}
+          {% if bannerimage %}
+            <a href="{{ zsgallery.url }}">
+              {{ bannerimage.cropZoom(480,360).quality(70) }}
+            </a>
+          {% endif %}
+        {% endif %}
+        <img src="{{ url('theme://images/skola/P1020826.JPG') }}" />
+        {% if msgallery is defined and msgallery.media.images is not empty %}
+          {% set bannerimage = random(msgallery.media.images) %}
+          {% if bannerimage %}
+            <a href="{{ msgallery.url }}">
+              {{ bannerimage.cropZoom(480,360).quality(70) }}
+            </a>
+          {% endif %}
+        {% endif %}
+        <img src="{{ url('theme://images/skola/P1020825.JPG') }}" />
+        {% if zsgallery is defined and zsgallery.media.images is not empty %}
+          {% set bannerimage = random(zsgallery.media.images) %}
+          {% if bannerimage %}
+            <a href="{{ zsgallery.url }}">
+              {{ bannerimage.cropZoom(480,360).quality(70) }}
+            </a>
+          {% endif %}
+        {% endif %}
+        <img src="{{ url('theme://images/skola/P1020824.JPG') }}" />
+        {% if msgallery is defined and msgallery.media.images is not empty %}
+          {% set bannerimage = random(msgallery.media.images) %}
+          {% if bannerimage %}
+            <a href="{{ msgallery.url }}">
+              {{ bannerimage.cropZoom(480,360).quality(70) }}
+            </a>
+          {% endif %}
+        {% endif %}
+    </div>
+    {% include 'partials/navigation.html.twig' %}
+    {#{% if site.social %}
+        {% include 'partials/social.html.twig' %}
+    {% endif %}#}
+</header>

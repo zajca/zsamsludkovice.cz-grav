@@ -1,0 +1,10 @@
+email: zajca@zajca.cz
+access:
+  admin:
+    login: true
+    super: true
+  site:
+    login: true
+fullname: zajca
+title: zajca
+hashed_password: $2y$10$x.CZj4OZmRWdTRks4KCf3.OCiA8/KtBoj2eg3VYqNYjWMo8dHfeEm

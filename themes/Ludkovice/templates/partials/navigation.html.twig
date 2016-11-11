@@ -1,0 +1,44 @@
+<nav class="top-bar" data-topbar>
+    <ul class="title-area">
+
+        <li class="name">
+            <h1>
+                <a href="/">
+                    <img src="/user/themes/Ludkovice/images/logo_ludkovice.svg" width="30">&nbsp;&nbsp;ZŠ a MŠ Ludkovice
+                </a>
+            </h1>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
+    </ul>
+    <section class="top-bar-section">
+
+        <ul class="right">
+            {% for page in pages.children %}
+                {% if page.visible %}
+                    {% set current_page = (page.active or page.activeChild) ? 'active' : '' %}
+                    {% if page.template == 'placeholder'%}
+                    <li class="has-dropdown {{ current_page }}">
+                      <a href="#">{{ page.menu }}</a>
+                      <ul class="dropdown">
+                        {% for p in page.children %}
+                        {% set current_page = (p.active or p.activeChild) ? 'active' : '' %}
+                        <li class="{{ current_page }}">
+                            <a href="{{ p.url }}">
+                                {{ p.menu }}
+                            </a>
+                        </li>
+                        {% endfor %}
+                      </ul>
+                    </li>
+                    {% else %}
+                    <li class="{{ current_page }}">
+                        <a href="{{ page.url }}">
+                            {{ page.menu }}
+                        </a>
+                    </li>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </section>
+</nav>

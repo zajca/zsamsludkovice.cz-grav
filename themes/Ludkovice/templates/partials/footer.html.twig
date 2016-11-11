@@ -1,0 +1,48 @@
+<footer class="row">
+    <div class="large-12 columns">
+        <hr>
+        <div class="row">
+            <div class="large-6 large-offset-6 small-12 columns">
+                <ul class="inline-list right">
+                    {% for page in pages.children %}
+                        {% if page.visible %}
+                        {% if page.template == 'placeholder'%}
+                        <li class="has-dropdown {{ current_page }}">
+                          <a href="#">{{ page.menu }}</a>
+                          <ul class="dropdown">
+                            {% for p in page.children %}
+                            {% set current_page = (p.active or p.activeChild) ? 'active' : '' %}
+                            <li class="{{ current_page }}">
+                                <a href="{{ p.url }}">
+                                    {{ p.menu }}
+                                </a>
+                            </li>
+                            {% endfor %}
+                          </ul>
+                        </li>
+                        {% else %}
+                            {% set current_page = (page.active or page.activeChild) ? 'active' : '' %}
+                            <li class="{{ current_page }}">
+                                <a href="{{ page.url }}">
+                                    {{ page.menu }}
+                                </a>
+                            </li>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                    {% for mitem in site.menu %}
+                        <li>
+                            <a href="{% if "#" in mitem.link %}{{ base_url_absolute }}/{{ mitem.link }}{% else %}{{ mitem.link }}{% endif %}"
+                               {% if not "#" in mitem.link %}class="smoothscroll"{% endif %}>{{ mitem.text }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+          <div class="large-12 text-center columns">
+              <p>&copy; Copyright ZŠ a MŠ Ludkovice.</p>
+          </div>
+        </div>
+    </div>
+</footer>

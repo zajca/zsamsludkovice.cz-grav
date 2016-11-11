@@ -1,0 +1,22 @@
+title: 'ZŠ MŠ Ludkovice'
+author:
+  name: 'ZŠ MŠ Ludkovice'
+  email: zajca@zajca.cz
+taxonomies:
+  - category
+  - tag
+metadata:
+  description: 'Základní a Mateřská škola Ludovice'
+summary:
+  enabled: true
+  format: short
+  size: 300
+  delimiter: '==='
+redirects:
+  /redirect-test: /
+  '/old/(.*)': /new/$1
+routes:
+  /something/else: /blog/sample-3
+  '/new/(.*)': /blog/$1
+blog:
+  route: /blog

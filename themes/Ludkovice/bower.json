@@ -1,0 +1,12 @@
+{
+  "name": "Ludkovice theme",
+  "dependencies": {
+    "foundation": "~5.4.7",
+    "fastclick": "~1.0.6",
+    "jquery": "~2.1.4",
+    "modernizr": "~3.2.0",
+    "normalize-scss": "normalize.scss#~3.0.3",
+    "imagelightbox": "~0.1.3",
+    "slick-carousel": "slick.js#~1.5.8"
+  }
+}
